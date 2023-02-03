@@ -28,7 +28,7 @@ const Create = () => {
         placeholder="Age..."
         type="text"
         onChange={(e) => {
-          setNewUser({ ...newUser, age: e.target.value });
+          setNewUser({ ...newUser, age: Number(e.target.value) });
         }}
       />
       <button type="submit" onClick={createHandler}>
