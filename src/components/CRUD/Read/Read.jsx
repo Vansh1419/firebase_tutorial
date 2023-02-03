@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { database } from "../../../utils/firebase-config";
 const Read = () => {
   const [users, setUsers] = useState([]);
-  const usersCollectionReference = collection(database, "users");
+  const usersCollectionReference = collection(database, "persons");
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(usersCollectionReference);

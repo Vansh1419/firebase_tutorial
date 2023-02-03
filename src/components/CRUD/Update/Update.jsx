@@ -3,14 +3,14 @@ import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
 import { database } from "../../../utils/firebase-config";
 const Update = () => {
   const [users, setUsers] = useState([]);
-  const usersCollectionReference = collection(database, "users");
+  const usersCollectionReference = collection(database, "persons");
   const updateHandlerIncrease = async (id, age) => {
-    const documentInstance = doc(database, "users", id);
+    const documentInstance = doc(database, "persons", id);
     const updatedInformation = { age: age + 1 };
     await updateDoc(documentInstance, updatedInformation);
   };
   const updateHandlerDecrease = async (id, age) => {
-    const documentInstance = doc(database, "users", id);
+    const documentInstance = doc(database, "persons", id);
     const updatedInformation = { age: age - 1 };
     await updateDoc(documentInstance, updatedInformation);
   };

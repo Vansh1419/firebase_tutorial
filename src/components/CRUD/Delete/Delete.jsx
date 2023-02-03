@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { database } from "../../../utils/firebase-config";
 const Delete = () => {
   const [users, setUsers] = useState([]);
-  const usersCollectionReference = collection(database, "users");
+  const usersCollectionReference = collection(database, "persons");
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(usersCollectionReference);
@@ -13,7 +13,7 @@ const Delete = () => {
     getUsers();
   }, []);
   const deleteHandler = async (id) => {
-    const documentInstance = doc(database, "users", id);
+    const documentInstance = doc(database, "persons", id);
     await deleteDoc(documentInstance);
   };
   return (
