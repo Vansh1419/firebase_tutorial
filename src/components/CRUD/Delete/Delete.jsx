@@ -12,8 +12,6 @@ const Delete = () => {
     };
     getUsers();
   }, []);
-  console.log(users);
-
   const deleteHandler = async (id) => {
     const documentInstance = doc(database, "users", id);
     await deleteDoc(documentInstance);

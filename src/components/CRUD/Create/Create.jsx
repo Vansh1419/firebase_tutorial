@@ -4,12 +4,14 @@ import { addDoc } from "firebase/firestore";
 import { usersCollectionReference } from "../../../utils/firebase-config";
 
 const Create = () => {
-  const [newUser, setNewUser] = useState({ name: "", age: 0 });
-  const createHandler = async (e) => {
+  const [newUser, setNewUser] = useState({ name: "", age: "" });
+  const createHandler = (e) => {
     e.preventDefault();
-    console.log(newUser);
-    await addDoc(usersCollectionReference, { ...newUser });
-    setNewUser({ ...newUser, name: "", age: 0 });
+    const createrFunc = async () => {
+      await addDoc(usersCollectionReference, { ...newUser });
+    };
+    createrFunc();
+    setNewUser({ name: "", age: "" });
   };
 
   return (
@@ -19,6 +21,7 @@ const Create = () => {
       <input
         placeholder="Name..."
         type="text"
+        value={newUser.name}
         onChange={(e) => {
           setNewUser({ ...newUser, name: e.target.value });
         }}
@@ -27,6 +30,7 @@ const Create = () => {
       <input
         placeholder="Age..."
         type="text"
+        value={newUser.age}
         onChange={(e) => {
           setNewUser({ ...newUser, age: Number(e.target.value) });
         }}

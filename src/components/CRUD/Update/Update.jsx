@@ -23,7 +23,7 @@ const Update = () => {
   }, []);
   return (
     <div>
-      <h2>Getting users means reading data from firestore</h2>
+      <h2>Updating users information in firestore</h2>
       {users[0] ? (
         users.map((user) => (
           <pre key={user.id}>

@@ -5,10 +5,11 @@ import Update from "./Update/Update";
 const CRUD = () => {
   return (
     <div>
+      <h1>CRUD Operations || Using firebase</h1>
       <Read />
       <Create />
-      <Update/>
-      <Delete/>
+      <Update />
+      <Delete />
     </div>
   );
 };
