@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from "firebase/auth";
 import { useState, useEffect } from "react";
 const EmailPasswordAuthentication = () => {
@@ -29,6 +30,8 @@ const EmailPasswordAuthentication = () => {
         registerEmail,
         registerPassword
       );
+      await sendEmailVerification(auth.currentUser);
+      console.log(auth?.currentUser);
       setRegisterEmail("");
       setRegisterPassword("");
     } catch (error) {
@@ -44,6 +47,7 @@ const EmailPasswordAuthentication = () => {
         logInEmail,
         logInPassword
       );
+      console.log(auth?.currentUser);
       setRegisterEmail("");
       setRegisterPassword("");
     } catch (error) {
@@ -99,8 +103,7 @@ const EmailPasswordAuthentication = () => {
         <button onClick={logIn}>LogIn</button>
       </div>
       <div>
-        <h3>
-          User Logged In:  {user?.email} </h3>
+        <h3>User Logged In: {user?.email} </h3>
         <button onClick={logOut}>Sign Out</button>
       </div>
     </div>
