@@ -12,19 +12,22 @@ const Read = () => {
     };
     getUsers();
   }, []);
-  //   console.log(users);
   return (
     <div>
       <h2>Getting users means reading data from firestore</h2>
-      {users.map((user) => (
-        <pre key={user.id}>
-          <span>{user.name}</span>
-          {"   "}
-          <span>{user.age}</span>
-          {"   "}
-          <span>{user.id}</span>
-        </pre>
-      ))}
+      {users[0] ? (
+        users.map((user) => (
+          <pre key={user.id}>
+            <span>{user.name}</span>
+            {"   "}
+            <span>{user.age}</span>
+            {"   "}
+            <span>{user.id}</span>
+          </pre>
+        ))
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };
